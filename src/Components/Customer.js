@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewCustomerForm } from './NewCustomerForm';
+import { NewSaleForm } from './NewSaleForm';
 
 export const Customer = (props) => {
     const { customer, updateCustomer } = props;
@@ -18,7 +18,7 @@ export const Customer = (props) => {
         <ul>
           {customer.sales.map((sale, index) => (
             <li key={index}>
-                <label>`${sale.name} Area: ${sale.price}`</label>
+                <label>{`${sale.name} Area: ${sale.price}`}</label>
                 <button onClick={(e) => deleteSale(sale._id)}></button>
             </li>
           ))}  
@@ -31,7 +31,7 @@ export const Customer = (props) => {
             {
                 sales({ sales, customerId: customer._id, deleteSale})
             }
-            <NewCustomerForm addNewCustomer={addNewCustomer} />
+            <NewSaleForm addNewSale= {addNewSale} />
         </div>
     )
 

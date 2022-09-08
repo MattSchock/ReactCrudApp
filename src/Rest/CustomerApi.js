@@ -12,9 +12,9 @@ class CustomerApi {
         }
     }
 
-    push = async(house) => {
+    push = async(customer) => {
         try {
-            const resp = await fetch(`${API_ENDPOINT} ${house.id}`, {
+            const resp = await fetch(`${API_ENDPOINT} ${customer.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-type': 'application/json'
