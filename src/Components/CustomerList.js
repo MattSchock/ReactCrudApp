@@ -23,14 +23,18 @@
 
     render() {
         return(
-            <div>
+            <div className='customer-list'>
+                Hello
                 {this.state.customers.map((customer) => (
                     <Customer 
                     customer={customer}
                     key={customer._id}
                     updateCustomer={this.updateCustomer}
+                    
                     />
+                    
                 ))}
+                
             </div>
         )
     }

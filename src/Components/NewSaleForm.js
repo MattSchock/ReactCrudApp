@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 export const NewSaleForm = (props) => {
     const [name, setName] = useState('');
     const [price, setPrice] = useState(undefined);
+    let [saleId, setSaleId] = useState(0)
 
     const handlePriceInput = (e) => {
         const int = parseInt(e.target.value, 10);
@@ -10,9 +11,13 @@ export const NewSaleForm = (props) => {
     }
 
     const onSubmit = (e) => {
+        console.log('Event:', e);
+        console.log(name, price, 'nameandprice')
+        
         e.preventDefault();
         if (name && price) {
-            props.addNewSale({name, price});
+            saleId = Math.floor(Math.random() * 100000);
+            props.addNewSale({name, price, saleId});
             setName('');
             setPrice('');
         } else {
@@ -30,7 +35,7 @@ export const NewSaleForm = (props) => {
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                     />
-            </form>
+            
             <input
                 type='text'
                 placeholder='price'
@@ -38,6 +43,7 @@ export const NewSaleForm = (props) => {
                 value={price}
                 />
                 <button type='submit'>Add Sale</button>
+            </form>
         </div>
     )
 
